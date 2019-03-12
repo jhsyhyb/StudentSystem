@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StudentDao">
+    <resultMap type="Student" id="studentResultMap" >
+        <id property="studentId" column="student_id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="studentAge" column="student_age"/>
+        <result property="studentSex" column="student_sex"/>
+    </resultMap>
+    <insert id="addStudent" parameterType="Student">
+        INSERT INTO student(student_id,student_name,student_age,student_sex) VALUE (#{studentId},#{studentName}, #{studentNum}, #{studentDetail})
+    </insert>
+
+    <delete id="deleteStudentById" parameterType="long">
+        DELETE FROM student WHERE student_id=#{studentID}
+    </delete>
+
+    <update id="updateStudent" parameterType="Student">
+        UPDATE student
+        SET NAME = #{studentName},NUMBER = #{studentAge},detail = #{studentSex}
+        WHERE  student_id = #{studentId}
+    </update>
+
+    <select id="queryById" resultType="Student" parameterType="long">
+        SELECT student_id,student_name,student_age,student_sex
+        FROM student
+        WHERE student_id=#{studentId}
+    </select>
+    <select id="queryAllStudent" resultMap="studentResultMap">
+        SELECT student_id,student_name,student_age,student_sex
+        FROM student
+    </select>
+
+</mapper>
