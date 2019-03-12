@@ -39,7 +39,7 @@
 </div>
 <br><br>
 <h3>
-    <a href="${path}/stuent/allStudent">点击进入管理页面</a>
+    <a href="${path}/student/allStudent">点击进入管理页面</a>
 </h3>
 </body>
 </html>

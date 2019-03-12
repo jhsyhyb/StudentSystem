@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/student")
-
 public class StudentController {
     @Autowired
     private StudentService studentService;
@@ -42,8 +41,8 @@ public class StudentController {
         return "redirect:/student/allStudent";
     }
 
-    @RequestMapping("toUpdateStudent")
-    public String toUpdateStudent(Model model, Long id) {
+    @RequestMapping("toUpdateStudent/{id}")
+    public String toUpdateStudent(Model model, @PathVariable("id") Long id) {
         model.addAttribute("student", studentService.queryById(id));
         return "updateStudent";
     }

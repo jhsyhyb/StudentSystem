@@ -10,10 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.lang.Override;
 
-@Service
-public abstract class StudentServiceImpl implements StudentService{
+@Service("studentService")
+public  class StudentServiceImpl implements StudentService{
     @Autowired
     private StudentDao studentDao;
+
+    @Override
+    public void addStudent(Student student) {
+    }
 
     @Override
     public int addStuent(Student student){
@@ -23,6 +27,11 @@ public abstract class StudentServiceImpl implements StudentService{
     public void deleteStudentById(long id){
         studentDao.deleteStudentById(id);
     }
+
+    @Override
+    public void updateStudent(Student stuent) {
+    }
+
     @Override
     public int updateStuent(Student student){
         return studentDao.updateStudent(student);

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -15,7 +15,7 @@
 %>
 <html>
 <head>
-    <title>修改论文</title>
+    <title>新增学生信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -36,26 +36,30 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    <small>修改学生信息</small>
+                    <small>新增学生</small>
                 </h1>
             </div>
         </div>
     </div>
-
     <form action="" name="userForm">
-        <input type="hidden" name="studentId" value="${student.studentId}"/>
-        论文名称：<input type="text" name="studentName" value="${student.studentName}"/>
-        论文数量：<input type="text" name="studentNum" value="${student.studentNum}"/>
-        论文详情：<input type="text" name="studentDetail" value="${student.studentDetail }"/>
-        <input type="button" value="提交" onclick="updatestudent()"/>
+        学生姓名：<label>
+        <input type="text" name="studentName">
+    </label><br><br><br>
+        学生年龄：<label>
+        <input type="text" name="studentAge">
+    </label><br><br><br>
+        学生性别：<label>
+        <input type="text" name="studentSex">
+    </label><br><br><br>
+        <input type="button" value="添加" onclick="addStudent()">
     </form>
+
     <script type="text/javascript">
-        function updatestudent() {
+        function addStudent() {
             var form = document.forms[0];
-            form.action = "<%=basePath %>student/updatestudent";
+            form.action = "<%=basePath %>student/addStudent";
             form.method = "post";
             form.submit();
         }
     </script>
 </div>
-

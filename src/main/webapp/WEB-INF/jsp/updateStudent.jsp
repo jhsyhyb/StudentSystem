@@ -15,7 +15,7 @@
 %>
 <html>
 <head>
-    <title>修改论文</title>
+    <title>修改学生信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -44,9 +44,9 @@
 
     <form action="" name="userForm">
         <input type="hidden" name="studentId" value="${student.studentId}"/>
-        论文名称：<input type="text" name="studentName" value="${student.studentName}"/>
-        论文数量：<input type="text" name="studentNum" value="${student.studentNum}"/>
-        论文详情：<input type="text" name="studentDetail" value="${student.studentDetail }"/>
+        学生姓名：<input type="text" name="studentName" value="${student.studentName}"/>
+        学生年龄：<input type="text" name="studentAge" value="${student.studentAge}"/>
+        学生性别：<input type="text" name="studentSex" value="${student.studentSex }"/>
         <input type="button" value="提交" onclick="updatestudent()"/>
     </form>
     <script type="text/javascript">

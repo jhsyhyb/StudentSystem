@@ -5,9 +5,9 @@
   Time: 16:11
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String appPath = request.getContextPath(); %>
+<% String allPath = request.getContextPath(); %>
 <html>
 <head>
     <title>Student列表</title>
@@ -62,7 +62,7 @@
                         <td>${student.studentSex}</td>
                         <td>
                             <a href="${path}/student/toUpdateStudent?id=${student.studentId}">更改</a> |
-                            <a href="<%=appPath%>/student/del/${student.studentId}">删除</a>
+                            <a href="<%=allPath%>/student/del/${student.studentId}">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
