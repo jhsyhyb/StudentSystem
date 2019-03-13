@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String allPath = request.getContextPath(); %>
+<% String path = request.getContextPath(); %>
 <html>
 <head>
     <title>Student列表</title>
@@ -38,7 +38,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 column">
-            <a class="btn btn-primary" href="${path}/student/toAddStudent">新增</a>
+            <a class="btn btn-primary" href="<%=path%>/student/toAddStudent">新增</a>
         </div>
     </div>
     <div class="row clearfix">
@@ -61,8 +61,8 @@
                         <td>${student.studentAge}</td>
                         <td>${student.studentSex}</td>
                         <td>
-                            <a href="${path}/student/toUpdateStudent?id=${student.studentId}">更改</a> |
-                            <a href="<%=allPath%>/student/del/${student.studentId}">删除</a>
+                            <a href="<%=path%>/student/toUpdateStudent?id=${student.studentId}">更改</a> |
+                            <a href="<%=path%>/student/del/${student.studentId}">删除</a>
                         </td>
                     </tr>
                 </c:forEach>

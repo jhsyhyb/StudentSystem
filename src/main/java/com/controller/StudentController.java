@@ -41,8 +41,8 @@ public class StudentController {
         return "redirect:/student/allStudent";
     }
 
-    @RequestMapping("toUpdateStudent/{id}")
-    public String toUpdateStudent(Model model, @PathVariable("id") Long id) {
+    @RequestMapping("toUpdateStudent")
+    public String toUpdateStudent(Model model,  Long id) {
         model.addAttribute("student", studentService.queryById(id));
         return "updateStudent";
     }

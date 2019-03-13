@@ -44,15 +44,21 @@
 
     <form action="" name="userForm">
         <input type="hidden" name="studentId" value="${student.studentId}"/>
-        学生姓名：<input type="text" name="studentName" value="${student.studentName}"/>
-        学生年龄：<input type="text" name="studentAge" value="${student.studentAge}"/>
-        学生性别：<input type="text" name="studentSex" value="${student.studentSex }"/>
-        <input type="button" value="提交" onclick="updatestudent()"/>
+        学生姓名：<label>
+        <input type="text" name="studentName" value="${student.studentName}"/>
+    </label>
+        学生年龄：<label>
+        <input type="text" name="studentAge" value="${student.studentAge}"/>
+    </label>
+        学生性别：<label>
+        <input type="text" name="studentSex" value="${student.studentSex }"/>
+    </label>
+        <input type="button" value="提交" onclick="updateStudent()"/>
     </form>
     <script type="text/javascript">
-        function updatestudent() {
+        function updateStudent() {
             var form = document.forms[0];
-            form.action = "<%=basePath %>student/updatestudent";
+            form.action = "<%=basePath %>student/updateStudent";
             form.method = "post";
             form.submit();
         }

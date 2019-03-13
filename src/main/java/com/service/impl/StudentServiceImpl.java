@@ -33,6 +33,9 @@ public  class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    /**
+     * 根据 id 修改对应数据
+     */
     public int updateStuent(Student student){
         return studentDao.updateStudent(student);
     }
