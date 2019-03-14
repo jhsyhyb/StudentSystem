@@ -12,31 +12,25 @@ import java.lang.Override;
 
 @Service("studentService")
 public  class StudentServiceImpl implements StudentService{
-    @Autowired
-    private StudentDao studentDao;
+    private final StudentDao studentDao;
 
-    @Override
-    public void addStudent(Student student) {
+    @Autowired
+    public StudentServiceImpl(StudentDao studentDao) {
+        this.studentDao = studentDao;
     }
 
     @Override
-    public int addStuent(Student student){
+    public int addStudent(Student student){
         return studentDao.addStudent(student);
     }
     @Override
-    public void deleteStudentById(long id){
-        studentDao.deleteStudentById(id);
+    public int deleteStudentById(long id){
+        return studentDao.deleteStudentById(id);
     }
 
-    @Override
-    public void updateStudent(Student stuent) {
-    }
 
     @Override
-    /**
-     * 根据 id 修改对应数据
-     */
-    public int updateStuent(Student student){
+    public int updateStudent(Student student){
         return studentDao.updateStudent(student);
     }
     @Override
