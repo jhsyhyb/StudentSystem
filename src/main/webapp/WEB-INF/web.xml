@@ -15,8 +15,8 @@
         Mybatis - > spring -> springmvc
      -->
     <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring/spring-*.xml</param-value>
+      <param-name>contextConfigLocation</param-name><!--参数名称-->
+      <param-value>classpath:spring/spring-*.xml</param-value><!--参数取值-->
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -24,19 +24,20 @@
     <!-- 默认匹配所有的请求 -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <filter>
-    <filter-name>encodingFilter</filter-name>
+  <!--以下配置的加载顺序:先 ServletContext >> context-param >> listener >> filter >> servlet >> spring-->
+  <filter><!-- 用来声明filter的相关设定,过滤器可以截取和修改一个Servlet或JSP页面的请求或从一个Servlet或JSP页面发出的响应-->
+    <filter-name>encodingFilter</filter-name><!--指定filter的名字-->
     <filter-class>
       org.springframework.web.filter.CharacterEncodingFilter
-    </filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>utf-8</param-value>
+    </filter-class><!--定义filter的类的名称-->
+    <init-param><!--用来定义参数,若在Servlet可以使用下列方法来获得:String param_name=getServletContext().getInitParamter("param-name里面的值");-->
+      <param-name>encoding</param-name><!--参数名称-->
+      <param-value>utf-8</param-value><!--参数值-->
     </init-param>
   </filter>
 
-  <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+  <filter-mapping><!--用来定义filter所对应的URL-->
+    <filter-name>encodingFilter</filter-name><!--指定对应filter的名字-->
+    <url-pattern>/*</url-pattern><!--指定filter所对应的URL-->
   </filter-mapping>
 </web-app>

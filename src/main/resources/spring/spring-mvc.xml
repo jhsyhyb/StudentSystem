@@ -9,7 +9,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-    <!-- 配置SpringMVC -->
+    <!-- 配置SpringMVC 配置映射器与适配器-->
     <!-- 1.开启SpringMVC注解模式 -->
     <!-- 简化配置：
         (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter
@@ -23,14 +23,13 @@
      -->
     <mvc:default-servlet-handler/>
 
-    <!-- 3.配置jsp 显示ViewResolver -->
+    <!-- 3.视图解析器，配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!-- 4.扫描web相关的bean -->
+    <!-- 4.自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.controller" />
-    <context:component-scan base-package="com.service" />
 </beans>
